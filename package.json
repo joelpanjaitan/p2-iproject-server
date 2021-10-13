@@ -1,0 +1,20 @@
+{
+  "name": "p2-customer-web-app",
+  "version": "1.0.0",
+  "description": "CMS client using Vue CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmt-16-paris-fox/p2-customer-web-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmt-16-paris-fox/p2-customer-web-app/issues"
+  },
+  "homepage": "https://github.com/rmt-16-paris-fox/p2-customer-web-app#readme"
+}
