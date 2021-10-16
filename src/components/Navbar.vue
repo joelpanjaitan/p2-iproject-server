@@ -1,8 +1,10 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/login">Sign In</router-link> |
-    <router-link to="/register">Sign Up</router-link>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <router-link to="/">Home&nbsp;</router-link> |
+      <router-link to="/login">&nbsp;Sign In&nbsp;</router-link> |
+      <router-link to="/register">&nbsp;Sign Up</router-link>
+    </nav>
     <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul v-if="isLogin" class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">

@@ -1,7 +1,17 @@
 <template>
   <div>
     <h1>This is food detail page</h1>
-    <pre>{{ JSON.stringify(foodDetail, null, 2) }}</pre>
+    <!-- <pre>{{ JSON.stringify(foodDetail, null, 2) }}</pre> -->
+    <img :src="foodDetail.imgUrl" /><br />
+    <a>Name: {{ foodDetail.name }}</a
+    ><br />
+    <a>Description: {{ foodDetail.description }}</a
+    ><br />
+    <a>Price: {{ foodDetail.price }}</a
+    ><br />
+    <a>Category: {{ foodDetail.Category.name }}</a
+    ><br /><br />
+    <img :src="newQrCode.qrcode" />
   </div>
 </template>
 
@@ -31,14 +41,21 @@ export default {
   },
   created() {
     this.$store.dispatch("foodDetail", this.$route.params.id);
-    // console.log(this.$route.params.id);
+    this.$store.dispatch("newQrCode", this.$route.params.id);
   },
   computed: {
     foodDetail: function () {
       return this.$store.state.food;
     },
+    newQrCode: function () {
+      return this.$store.state.qrCode;
+    },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  max-width: 100px;
+}
+</style>
