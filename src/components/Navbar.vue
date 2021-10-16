@@ -2,8 +2,13 @@
   <div id="nav">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <router-link to="/">Home&nbsp;</router-link> |
-      <router-link to="/login">&nbsp;Sign In&nbsp;</router-link> |
-      <router-link to="/register">&nbsp;Sign Up</router-link>
+      <router-link to="/login" v-if="!isLogin">&nbsp;Sign In&nbsp;</router-link>
+      |
+      <router-link to="/register" v-if="!isLogin">&nbsp;Sign Up</router-link>
+      <router-link to="/bookmark" v-if="isLogin"
+        >&nbsp;My Bookmark&nbsp;</router-link
+      >|
+      <a @click="logout" v-if="isLogin">&nbsp;Sign Out</a>
     </nav>
     <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul v-if="isLogin" class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -38,13 +43,23 @@
 <script>
 export default {
   name: "Navbar",
-  methods: {},
+  methods: {
+    logout: function () {
+      localStorage.clear();
+      this.$store.commit("SET_IS_LOGIN", false);
+      this.$router.push("/login");
+    },
+  },
   computed: {
     isLogin: function () {
-      return this.isLogin;
+      return this.$store.state.isLogin;
     },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+a {
+  text-decoration: underline;
+}
+</style>

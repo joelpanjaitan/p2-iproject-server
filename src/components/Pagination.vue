@@ -1,14 +1,8 @@
 <template>
   <nav aria-label="Page navigation example ">
     <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" @click="changePage">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" @click="changePage">1</a></li>
-      <li class="page-item"><a class="page-link" @click="changePage">2</a></li>
-      <li class="page-item"><a class="page-link" @click="changePage">3</a></li>
-      <li class="page-item">
-        <a class="page-link" @click="changePage">Next</a>
+      <li class="page-item" v-for="(item, index) in totalpage" :key="index">
+        <a class="page-link" @click="changePage(item)">{{ item }}</a>
       </li>
     </ul>
   </nav>
@@ -21,7 +15,17 @@ export default {
     return {};
   },
   methods: {
-    changePage: function () {},
+    changePage: function (page) {
+      this.$store.dispatch("pagination", page);
+    },
+  },
+  created() {
+    this.$store.dispatch("totalpage");
+  },
+  computed: {
+    totalpage: function () {
+      return this.$store.state.totalPage;
+    },
   },
 };
 </script>

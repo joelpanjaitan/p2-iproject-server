@@ -5,6 +5,7 @@
       <div class="card-body card-body">
         <h5 class="card-title">{{ singleFood.name }}</h5>
         <p class="card-text">{{ singleFood.description }}</p>
+        <p>Rp.{{ singleFood.price }}</p>
         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
       </div>
     </div>
@@ -15,6 +16,7 @@
 export default {
   name: "FoodCard",
   props: ["singleFood"],
+  created: {},
 };
 </script>
 

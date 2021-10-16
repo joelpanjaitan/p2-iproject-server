@@ -32,6 +32,11 @@ export default {
   components: {
     Navbar,
   },
+  created: function () {
+    if (localStorage.getItem("access_token")) {
+      this.$store.commit("SET_IS_LOGIN", true);
+    }
+  },
 };
 </script>
 <style>
