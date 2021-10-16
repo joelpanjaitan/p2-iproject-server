@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar />
-    <router-view :foodData="foodList" @display="fetchFoods" />
+    <router-view />
   </div>
 </template>
 <script>
